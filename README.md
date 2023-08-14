@@ -1,7 +1,7 @@
 # AtTune
-Submitted to Recess Hacks 3.0
+Submitted to Recess Hacks 3.0 (completed in 26 hours)
 
-To have this code be able to run, please add a .env file to Attune-main 
+For this code to run, please add a .env file to Attune-main 
 
 CLIENT_ID="YOUR CLIENT ID"
 
