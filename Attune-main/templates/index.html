@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AtTune</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/style.css"/>
+</head>
+
+<body>
+
+
+
+  <div class="header">
+    <h2 class="header-text lead">We offer Spotify playlists tailored to your <strong>feelings</strong>.</h2>
+  </div>
+
+  
+  <!-- Title -->
+  <section id="title" class="gradient-background">
+    <div class="image-overlay"></div>
+      <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="../static/music.gif" class="d-block ms-2 img-fluid pic" alt="Bootstrap Themes" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <div class="text-container">
+
+              <h1 class="display-5 fw-bold lh-1 mb-3 opaque-text">AtTune</h1>
+              <p class="lead">Harmonize your emotions with musical therapy</p>
+            </div>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <div class="input-group mb-3">
+                <form method="POST" action="/">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="search" placeholder="How are you feeling today?"
+                                aria-label="Search for playlists" aria-describedby="basic-addon1"style="width:400px;height:50px;">
+                        </div>
+                    </div>
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Features -->
+    <div class="container d-flex justify-content-center">
+    <section id="features">
+      {% for playlist in playlists %}
+      <div class="playlistListing row-12 d-block w-50 mh-100 px-auto mb-5"><iframe src="https://open.spotify.com/embed/playlist/{{ playlist.id }}" frameborder="10" allowtransparency="true" allow="encrypted-media" width="900"height="600"></iframe>
+      </div>
+        
+      {% endfor %}
+
+    </section>
+    </div> 
+
+    <section id="text" style="width:100%; background-color:rgb(195, 192, 192); overflow-x:hidden;">
+    <div class="container" style="background-color: rgb(195, 192, 192);overflow-x:hidden;" >
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Catharsis</h3>
+          <p>Experiencing catharsis through music involves finding relief and easing emotional tension by immersing yourself in songs that resonate with your current feelings. This allows you to process emotions in a controlled and safe manner, leading to a sense of comfort and decreased emotional distress. When you're feeling down and listening to sad songs, it's as if the music is expressing what you're feeling, and this expression fosters a sense of connection, where the feeling of being understood through music gives us a sense of validation and comfort.
+          </p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Emotional Regulation</h3>
+          <p>Listening to music triggers the release of neurotransmitters like dopamine or endorphins, which are associated with positive feelings. An example of this would be when you are sad and listening to sad music, your brain releases prolactin, which helps modulate feelings of sadness and will help your brain regulate your emotional state.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+            <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Nostalgia and Memory</h3>
+          <p>Certain songs can evoke memories and associations with past experiences. Not only this, but when you listen to music that you've enjoyed during similar emotional states in the past, it can trigger nostalgia. These two things have been found to generally be a mood uplifter and can help you reminisce about past positive experiences.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+   
+<div class="container">
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://i.gifer.com/3QAe.gif');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="pt-1 mt-1 mb-4 display-6 lh-1 fw-bold align-items-center">Music is the shorthand of emotion</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://media.tenor.com/HKWMTFj2DowAAAAd/space.gif');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="pt-1 mt-1 mb-4 display-6 lh-1 fw-bold align-items-center">Music can heal the wounds which medicine cannot touch</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('https://media.tenor.com/IIQ-ca9nBu0AAAAd/space.gif');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+        <h3 class="pt-1 mt-1 mb-4 display-6 lh-1 fw-bold align-items-center">Music is a universal language of mankind</h3>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Footer -->
+  <section id="footer" class="gradient-background">
+    <div class="container">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5">
+        <div class="col mb-3">
+          <p class="text-white">© AtTune</p>
+        </div>
+    
+        <div class="col mb-3">
+    
+        </div>
+    
+        <div class="col mb-3">
+          
+        </div>
+    
+        <div class="col mb-3">
+          
+        </div>
+    
+        <div class="col mb-3">
+          <h5 class="text-right">Frederick Chen</h5>
+          <h5 class="text-right">Enoch He</h5>
+          <ul class="nav flex-column">
+            <li class="mb-2"><a class="p-0 text-white text-right">Created with</a></li>
+            <li class="nav-item mb-2"><a href="https://html.com/" class="nav-link p-0 text-white text-right">HTML</a></li>
+            <li class="nav-item mb-2"><a href="https://getbootstrap.com/" class="nav-link p-0 text-white text-right">CSS</a></li>
+            <li class="nav-item mb-2"><a href="https://www.mysql.com/" class="nav-link p-0 text-white text-right">Bootstrap</a></li>
+            <li class="nav-item mb-2"><a href="https://www.python.org/" class="nav-link p-0 text-white text-right">Python</a></li>
+            <li class="nav-item mb-2"><a href="https://flask.palletsprojects.com/en/2.3.x/" class="nav-link p-0 text-white text-right">Flask</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
