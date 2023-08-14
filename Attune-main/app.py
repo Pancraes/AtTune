@@ -56,7 +56,7 @@ def home():
         if playlists:
             return render_template('index.html', playlists=playlists)
         else:
-            return "No playlists found for the provided genre."
+            return render_template('index.html')
     else:
         return render_template('index.html')
 
